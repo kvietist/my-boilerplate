@@ -1,13 +1,14 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    database_hostname: str
-    database_port:int
-    database_name: str
-    database_username: str
-    database_password:str
-    secret_key:str
-    algorithm:str
+    database_url: str = ""
+    database_hostname: str = "localhost"
+    database_port: int = 5432
+    database_name: str = "diary_db"
+    database_username: str = "postgres"
+    database_password: str = ""
+    secret_key: str = "change-me"
+    algorithm: str = "HS256"
     telegram_bot_token: str = ""
 
     model_config = SettingsConfigDict(env_file=".env")
