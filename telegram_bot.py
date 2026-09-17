@@ -1,5 +1,5 @@
 import httpx
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import (
     Application, 
     CommandHandler, 
@@ -13,6 +13,7 @@ from telegram.ext import (
 # --- CONFIGURATIONS ---
 TELEGRAM_TOKEN = "8976674295:AAE_K_YlHxzHcwJJcYYLB8wBDdmcnkG0nuE"
 FASTAPI_URL = "http://127.0.0.1:8000"
+MINI_APP_URL = "https://blog-app-rose-rho.vercel.app/"
 
 # Tracks user JWT login states in-memory
 USER_TOKENS = {}
@@ -25,14 +26,22 @@ WAITING_FOR_DIARY_ID = 6
 
 # --- MAIN MENU HUD ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    reply_markup = InlineKeyboardMarkup([
+        [InlineKeyboardButton(
+            "🚀 Launch LifeTracker",
+            web_app=WebAppInfo(url=MINI_APP_URL),
+        )]
+    ])
+    welcome_text = (
+        "📖 Welcome to LifeTracker!\n\n"
+        "Write your diaries daily and save them securely."
+    )
+
     if update.message:
-        await update.message.reply_text(
-            "📖 Welcome to your Mobile Diary Hub! "
-            "Open the Telegram Menu button to launch the Mini App."
-        )
+        await update.message.reply_text(welcome_text, reply_markup=reply_markup)
     elif update.callback_query:
         await update.callback_query.edit_message_text(
-            "📖 Open the Telegram Menu button to launch the Mini App."
+            welcome_text, reply_markup=reply_markup
         )
     return ConversationHandler.END
 
