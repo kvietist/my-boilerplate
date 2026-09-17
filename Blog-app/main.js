@@ -96,15 +96,16 @@ async function loadPosts() {
 async function deletePost(id) {
   if (!confirm('Delete this diary entry?')) return;
 
-  const response = await fetch(`${API_URL}/miniapp/diaries/${id}`, {
-    method: 'DELETE',
-    headers: apiHeaders(),
-  });
-  if (!response.ok) {
-    alert('The diary entry could not be deleted.');
-    return;
+  try {
+    const response = await fetch(`${API_URL}/miniapp/diaries/${id}`, {
+      method: 'DELETE',
+      headers: apiHeaders(),
+    });
+    if (!response.ok) throw new Error('The diary entry could not be deleted.');
+    await loadPosts();
+  } catch (error) {
+    alert(error.message);
   }
-  await loadPosts();
 }
 
 // Initial Mini App setup

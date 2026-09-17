@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My-Blog</title>
+    <title>LifeTracker</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div class="container-one">
-        <h1>Welcome to My-Blog</h1>
-        <p>where you can write and save your blogs</p>
+    <main class="container-one">
+        <p class="eyebrow">LIFETRACKER</p>
+        <h1>Daily thoughts, kept close.</h1>
+        <p>Write a diary entry and keep it safely connected to your Telegram account.</p>
         <div class="buttons">
-            <button id="seeBtn">See old blogs</button>
-            <button id="write-BTN">write new blog</button>
+            <button id="seeBtn" type="button">See diaries</button>
+            <button id="write-BTN" type="button">New diary</button>
         </div>
-    </div>
+    </main>
 
     <div class="Auth-wind hidden">
         <div class="auth-container">
@@ -48,25 +49,37 @@
         </form>
     </div>
 
-    <div id="posts" class="hidden">
-        <button id="go-back">go back</button>
+    <section id="posts" class="hidden" aria-live="polite">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">YOUR ARCHIVE</p>
+                <h2>Saved diaries</h2>
+            </div>
+            <button id="go-back" type="button" class="secondary-button">Home</button>
+        </div>
         <div id="posts-status"></div>
-    </div>
+    </section>
 
-    <div class="form hidden">
-        <form action="/serve.ul" id="qu">
-            <label for="title">Blog title:</label>
-            <input type="text" id="title" placeholder="blog title here">
+    <section class="form hidden">
+        <form id="qu">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">NEW ENTRY</p>
+                    <h2>Write a diary</h2>
+                </div>
+            </div>
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Give this day a name" maxlength="120" required>
 
-            <label for="blog">write blog here: </label>
-            <textarea name="blog" id="blog" placeholder="type here ..."></textarea>
+            <label for="blog">What is on your mind?</label>
+            <textarea name="blog" id="blog" placeholder="Write freely..." maxlength="10000" required></textarea>
 
             <div class="btn-group">
-                <button type="submit">submit</button>
+                <button type="submit">Save diary</button>
                 <button type="button" id="cancelBtn">cancel</button>
             </div>
         </form>
-    </div>
+    </section>
 
     <script src="main.js"></script>
 </body>
