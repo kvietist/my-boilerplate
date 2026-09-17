@@ -25,24 +25,15 @@ WAITING_FOR_DIARY_ID = 6
 
 # --- MAIN MENU HUD ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [
-        [
-            InlineKeyboardButton("🔑 Register Account", callback_data="btn_register"),
-            InlineKeyboardButton("🔓 Log In", callback_data="btn_login"),
-        ],
-        [
-            InlineKeyboardButton("📝 New Diary", callback_data="btn_add"),
-            InlineKeyboardButton("📋 View Entries", callback_data="btn_list"),
-        ],
-        [InlineKeyboardButton("🗑️ Delete Diary", callback_data="btn_delete")],
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    
-    # Check text origin (Command or Button fallback query)
     if update.message:
-        await update.message.reply_text("📖 Welcome to your Mobile Diary Hub! Choose an option:", reply_markup=reply_markup)
+        await update.message.reply_text(
+            "📖 Welcome to your Mobile Diary Hub! "
+            "Open the Telegram Menu button to launch the Mini App."
+        )
     elif update.callback_query:
-        await update.callback_query.edit_message_text("📖 Mobile Diary Hub main menu:", reply_markup=reply_markup)
+        await update.callback_query.edit_message_text(
+            "📖 Open the Telegram Menu button to launch the Mini App."
+        )
     return ConversationHandler.END
 
 # --- AUTH FLOW: REGISTER ---
