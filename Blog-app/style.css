@@ -1,11 +1,12 @@
 :root {
     color-scheme: dark;
-    --surface: rgba(15, 23, 42, 0.94);
-    --surface-soft: rgba(30, 41, 59, 0.92);
+    --surface: rgba(11, 34, 39, 0.96);
+    --surface-soft: rgba(20, 54, 58, 0.94);
     --text: #f8fafc;
-    --muted: #cbd5e1;
-    --accent: #f59e0b;
-    --border: rgba(148, 163, 184, 0.28);
+    --muted: #b9d0d0;
+    --accent: #62d6c6;
+    --accent-warm: #ff8b72;
+    --border: rgba(145, 211, 205, 0.24);
 }
 
 * {
@@ -13,15 +14,14 @@
 }
 
 body {
-    margin: 0;
     min-height: 100dvh;
+    margin: 0;
     padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text);
-    background: linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.82)),
-        url(./aaron-burden-AXqMy8MSSdk-unsplash.jpg) center / cover;
+    background: linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.82)), url(./aaron-burden-AXqMy8MSSdk-unsplash.jpg) center / cover;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -29,12 +29,12 @@ body {
 .form,
 .Auth-wind,
 #posts {
-    width: min(100%, 760px);
-    padding: clamp(1.25rem, 4vw, 2.5rem);
+    width: min(100%, 560px);
+    padding: clamp(1rem, 3vw, 1.75rem);
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 1.25rem;
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.32);
+    border-radius: 1rem;
+    box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.28);
 }
 
 .container-one {
@@ -51,7 +51,7 @@ body {
 
 .container-one h1 {
     margin: 0;
-    font-size: clamp(2rem, 7vw, 4rem);
+    font-size: clamp(1.9rem, 6vw, 3.2rem);
     line-height: 1.05;
 }
 
@@ -66,7 +66,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
 }
 
 .buttons button,
@@ -95,15 +95,15 @@ input,
 textarea {
     width: 100%;
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    padding: 0.85rem 1rem;
+    border-radius: 0.7rem;
+    padding: 0.8rem 0.9rem;
     color: var(--text);
     background: rgba(2, 6, 23, 0.72);
     font: inherit;
 }
 
 textarea {
-    min-height: 14rem;
+    min-height: 9rem;
     resize: vertical;
 }
 
@@ -114,11 +114,11 @@ textarea:focus {
 }
 
 button {
-    min-height: 2.75rem;
-    padding: 0.7rem 1rem;
+    min-height: 2.7rem;
+    padding: 0.65rem 0.9rem;
     border: 1px solid transparent;
-    border-radius: 0.7rem;
-    color: #111827;
+    border-radius: 0.65rem;
+    color: #082326;
     background: var(--accent);
     font: inherit;
     font-weight: 700;
@@ -127,7 +127,7 @@ button {
 }
 
 button:hover {
-    filter: brightness(1.12);
+    filter: brightness(1.1);
     transform: translateY(-1px);
 }
 
@@ -140,12 +140,12 @@ button:hover {
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .section-heading h2 {
     margin: 0;
-    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-size: clamp(1.35rem, 5vw, 1.9rem);
 }
 
 #posts-status {
@@ -154,28 +154,31 @@ button:hover {
 }
 
 .post-card {
-    margin-top: 1rem;
-    padding: 1.25rem;
+    margin-top: 0.85rem;
+    padding: 1rem;
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     background: var(--surface-soft);
 }
 
 .post-card h2 {
-    margin-top: 0;
+    margin: 0;
     overflow-wrap: anywhere;
+    font-size: 1.15rem;
 }
 
 .post-card p {
+    margin: 0.65rem 0 0;
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.55;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
 
 .post-card button {
-    width: 100%;
+    min-width: 7rem;
     margin-top: 0.75rem;
+    background: var(--accent-warm);
 }
 
 .secondary-button,
@@ -192,7 +195,7 @@ button:hover {
 .auth-container {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     border-bottom: 1px solid var(--border);
 }
 
@@ -222,26 +225,23 @@ button:hover {
     .form,
     .Auth-wind,
     #posts {
-        border-radius: 1rem;
-        padding: 1.1rem;
+        padding: 1rem;
+        border-radius: 0.85rem;
     }
 
     .buttons,
-    .btn-group {
+    .btn-group,
+    .section-heading {
         flex-direction: column;
     }
 
     .buttons button,
-    .btn-group button {
-        width: 100%;
-    }
-
-    .section-heading {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
+    .btn-group button,
     .secondary-button {
         width: 100%;
+    }
+
+    textarea {
+        min-height: 8rem;
     }
 }
