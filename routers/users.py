@@ -36,7 +36,7 @@ async def get_user(id:int, db: Session = Depends(get_db)):
 async def update_user(id:int, updated_user: schemas.Usercreate, db: Session = Depends(get_db), current_user: int = Depends(get_current_user)):
     if current_user != id:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="you are not authorized to perform this action !")
-    user_query = db.query(models.Usercreate).filter(models.Usercreate.username == username)
+    user_query = db.query(models.Usertable).filter(models.Usertable.id == id)
     user = user_query.first()
 
     if user is None:

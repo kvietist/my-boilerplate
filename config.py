@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     database_password:str
     secret_key:str
     algorithm:str
+    telegram_bot_token: str = ""
 
     model_config = SettingsConfigDict(env_file=".env")
 

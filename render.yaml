@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: diary-mini-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_HOSTNAME
+        fromDatabase:
+          name: diary-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: diary-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: diary-db
+          property: database
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: diary-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: diary-db
+          property: password
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+
+databases:
+  - name: diary-db
+    databaseName: diary_db
+    user: diary_user
