@@ -19,6 +19,11 @@ app.mount("/app", StaticFiles(directory="Blog-app", html=True), name="miniapp-ui
 @app.get("/")
 async def home():
     return {"Api is working"}
+
+
+@app.get("/healthz")
+async def health_check():
+    return {"status": "ok"}
     
 
 
@@ -27,6 +32,7 @@ app.add_middleware(
     allow_origins=[
         "http://127.0.0.1:5500",
         "https://my-boilerplate-production.up.railway.app",
+        "https://blog-app-rose-rho.vercel.app",
     ],
     allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
