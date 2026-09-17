@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container-one">
+        <h1>Welcome to My-Blog</h1>
+        <p>where you can write and save your blogs</p>
+        <div class="buttons">
+            <button id="seeBtn">See old blogs</button>
+            <button id="write-BTN">write new blog</button>
+        </div>
+    </div>
+
+    <div class="Auth-wind hidden">
+        <div class="auth-container">
+            <button id="login" class="tab-btn">login</button>
+            <button id="register" class="tab-btn">register</button>
+        </div>
+    </div>
+
+    <div class="auth-form hidden">
+        <form id="id-form">
+               <div class="input-group">
+                     <label for="Authemail">Email or Username</label>
+                     <input type="text" id="Authemail"  placeholder="e.g. mr_x" required>
+               </div>
+
+               <div class="input-group">
+                    <label for="Authpassword">Password</label>
+                    <input type="password" id="Authpassword" placeholder="......" required>  
+               </div>
+
+               <div class="input-group hidden">
+                    <label for="AuthConfirmPassword">Confirm Password</label>
+                    <input type="password" id="AuthConfirmPassword" placeholder="......">
+               </div>
+
+               <div class="btn-group">
+                  <button type="submit">Sign in</button>
+                  <button type="button"> cancel</button>
+               </div>
+        </form>
+    </div>
+
+    <div id="posts" class="hidden">
+        <button id="go-back">go back</button>
+        <div id="posts-status"></div>
+    </div>
+
+    <div class="form hidden">
+        <form action="/serve.ul" id="qu">
+            <label for="title">Blog title:</label>
+            <input type="text" id="title" placeholder="blog title here">
+
+            <label for="blog">write blog here: </label>
+            <textarea name="blog" id="blog" placeholder="type here ..."></textarea>
+
+            <div class="btn-group">
+                <button type="submit">submit</button>
+                <button type="button" id="cancelBtn">cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

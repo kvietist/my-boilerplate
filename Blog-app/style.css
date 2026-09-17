@@ -1,0 +1,175 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    min-height: 100vh;
+    background-image: url(./aaron-burden-AXqMy8MSSdk-unsplash.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.container-one {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    width: 550px;
+    height: 450px;
+    background-color: #1e293b;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 18px;
+    /* box-shadow: 0px 0px 5px 5px rgb(131, 127, 127); */
+}
+
+.container-one h1, .container-one p
+ {
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+ .container-one button {
+
+    color: #ffffff;
+    background-color: #2b3c59;
+
+ }
+
+
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 30px;
+    
+}
+
+
+.hidden {
+    display: none;
+}
+
+.form {
+    width: 800px;
+    height: 500px;
+    background-color: #1e293b;
+    border: 1px solid rgb(140, 136, 136);
+    border-radius: 17px;
+    box-shadow: 0 0 14px black;
+}
+
+#qu {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+}
+
+#blog {
+    width: 100%;
+    min-height: 200px;
+    padding: 12px;
+    border-radius: 17px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: none;
+    background-color: #cad1dc;
+}
+
+#title {
+    background-color: #cad1dc;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 17px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: none;
+    
+}
+
+.btn-group {
+    display: flex;
+    gap: 20px;
+    border-radius: 17px;
+}
+
+label {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    color: #ffffff;
+    background-color: #2b3c59;
+    padding: 6px;
+    border-radius: 17px;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color:  rgb(242, 158, 3) ;
+    box-shadow: 0 0 10px orange;
+}
+
+.Authwind {
+    width: 100%;
+    max-width: 420px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 17px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.auth-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    color: #94a3b8;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    cursor: pointer;
+    }
+
+.tab-btn.active {
+  color: #f59e0b; /* Amber accent */
+  border-bottom: 2px solid #f59e0b;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  color: #e2e8f0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #f59e0b;
+}
